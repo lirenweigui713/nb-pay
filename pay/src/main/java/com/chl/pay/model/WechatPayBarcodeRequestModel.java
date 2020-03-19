@@ -1,6 +1,6 @@
-package com.chl.pay.load;
+package com.chl.pay.model;
 
-import com.chl.pay.common.Result;
+import com.chl.common.model.Result;
 import com.chl.pay.utils.ParamsValidUtils;
 
 /**
@@ -8,7 +8,7 @@ import com.chl.pay.utils.ParamsValidUtils;
  * @Author: Xiao V
  * @Date: 2020/3/12 14:56
  */
-public class WechatPayBarcodeRequest extends BasePayRequest {
+public class WechatPayBarcodeRequestModel extends BasePayRequestModel {
 
 
     private String auth_code;

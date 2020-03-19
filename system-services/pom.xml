@@ -9,25 +9,19 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.chl</groupId>
-    <artifactId>refund</artifactId>
+    <artifactId>system-services</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>refund</name>
-    <description>NB Pay Refund Modules</description>
+    <name>system-services</name>
+    <description>NB Pay Common Services Support</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
     <dependencies>
         <dependency>
-            <groupId>com.chl</groupId>
-            <artifactId>common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
 

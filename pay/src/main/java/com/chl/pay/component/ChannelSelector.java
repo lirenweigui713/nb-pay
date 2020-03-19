@@ -1,8 +1,18 @@
 package com.chl.pay.component;
 
 import com.alibaba.fastjson.JSONObject;
+import com.chl.pay.service.AbstractPayService;
+import com.chl.pay.service.PayService;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Description: TODO()
@@ -11,24 +21,37 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class ChannelSelector {
+@Scope("singleton")
+public class ChannelSelector implements BeanPostProcessor,ApplicationContextAware {
 
-    @Autowired
-    WechatPayComponent wechatPayComponent;
-    @Autowired
-    AlipayComponent alipayComponent;
+    private Map<String, String> channleServices = new HashMap<>();
 
-    public PayComponent selectComponent(JSONObject params){
-        return selectComponent(params.getObject("channle", String.class));
+    private ApplicationContext applicationContext;
+
+    public PayService select(JSONObject params){
+        return select(params.getObject("channel", String.class));
     }
 
-    public PayComponent selectComponent(String channel){
-        if("alipay".equals(channel)){
-            return this.alipayComponent;
-        }else if("wechatpay".equals(channel)){
-            return this.wechatPayComponent;
-        }else {
-            return null;
+    public PayService select(String channel){
+        String s = this.channleServices.get(channel);
+        return (PayService) applicationContext.getBean(s);
+    }
+
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        if(bean instanceof AbstractPayService){
+            if(((AbstractPayService) bean).register()){
+                channleServices.put(((AbstractPayService) bean).getChannel(),beanName);
+            }
+            System.out.println(((AbstractPayService) bean).getChannel());
         }
+        return null;
+    }
+
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
     }
 }

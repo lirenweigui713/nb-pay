@@ -1,4 +1,4 @@
-package com.chl.pay.entity;
+package com.chl.common.entity;
 
 /**
  * @Description: TODO()

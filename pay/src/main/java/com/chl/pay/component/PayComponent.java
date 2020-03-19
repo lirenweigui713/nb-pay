@@ -1,6 +1,6 @@
 package com.chl.pay.component;
 
-import com.chl.pay.entity.Merchant;
+import com.chl.common.entity.Merchant;
 import com.chl.pay.model.TransactionModel;
 
 /**

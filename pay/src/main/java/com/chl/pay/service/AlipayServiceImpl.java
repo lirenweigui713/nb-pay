@@ -7,22 +7,21 @@ import org.springframework.stereotype.Service;
 /**
  * @Description: TODO()
  * @Author: Xiao V
- * @Date: 2020/3/12 15:48
+ * @Date: 2020/3/19 15:37
  */
 @Service
-public class WechatPayServiceImpl extends AbstractPayService implements WechatPayService {
+public class AlipayServiceImpl extends AbstractPayService implements AlipayService{
 
 
     @Override
     public boolean registerChannelService() {
-        return true;
+        return false;
     }
 
     @Override
     public void setChannle() {
-        this.channel = "WechatPay";
+        this.channel = "Alipay";
     }
-
 
     @Override
     public Result sacnBarcodePay() {
@@ -58,6 +57,4 @@ public class WechatPayServiceImpl extends AbstractPayService implements WechatPa
     public Result notification(Notify notify) {
         return null;
     }
-
-
 }

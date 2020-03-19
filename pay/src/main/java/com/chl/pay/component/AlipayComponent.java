@@ -1,6 +1,5 @@
 package com.chl.pay.component;
 
-import com.chl.pay.common.Result;
 import org.springframework.stereotype.Component;
 
 /**

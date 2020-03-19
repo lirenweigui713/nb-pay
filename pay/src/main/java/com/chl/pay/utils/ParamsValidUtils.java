@@ -1,7 +1,7 @@
 package com.chl.pay.utils;
 
-import com.chl.pay.common.Result;
-import com.chl.pay.load.BasePayRequest;
+import com.chl.common.model.Result;
+import com.chl.pay.model.BasePayRequestModel;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
@@ -24,7 +24,7 @@ public class ParamsValidUtils {
      * @param request
      * @return
      */
-    public static Result commonValidParams(BasePayRequest request){
+    public static Result commonValidParams(BasePayRequestModel request){
         Integer code;
         String msg;
         boolean success;

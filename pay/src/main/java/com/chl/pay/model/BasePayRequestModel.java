@@ -1,6 +1,7 @@
-package com.chl.pay.load;
+package com.chl.pay.model;
 
-import com.chl.pay.common.Result;
+
+import com.chl.common.model.Result;
 
 import java.math.BigDecimal;
 
@@ -9,7 +10,7 @@ import java.math.BigDecimal;
  * @Author: Xiao V
  * @Date: 2020/3/12 14:12
  */
-public abstract class BasePayRequest {
+public abstract class BasePayRequestModel {
 
     protected String merchant_id; // 系统内部商户ID
     protected String time_stamp; // 订单创建时间戳
