@@ -66,10 +66,9 @@ public class PayGatewayController {
             return result;
         AbstractPayService payService = (AbstractPayService)channelSelector.select(params);
         payService.verifySign(params,new WechatPayBarcodeRequestModel());
+        System.out.println("log..xxxxxxxx...xxx.xxxxxxx`");
 
-
-
-        // 参数验证
+        // 参数校验
         // 验签
 
         // 渠道

@@ -2,7 +2,9 @@ package com.chl.pay.service;
 
 import com.chl.common.model.Result;
 import com.chl.pay.model.Notify;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @Description: TODO()
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class AlipayServiceImpl extends AbstractPayService implements AlipayService{
 
+    @Autowired
+    RestTemplate restTemplate;
 
     @Override
     public boolean registerChannelService() {

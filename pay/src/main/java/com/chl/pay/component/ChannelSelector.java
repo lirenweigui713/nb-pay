@@ -6,9 +6,11 @@ import com.chl.pay.service.PayService;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Scope;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -21,12 +23,12 @@ import java.util.Map;
  */
 
 @Component
-@Scope("singleton")
 public class ChannelSelector implements BeanPostProcessor,ApplicationContextAware {
 
-    private Map<String, String> channleServices = new HashMap<>();
 
+    private Map<String, String> channleServices = new HashMap<>();
     private ApplicationContext applicationContext;
+
 
     public PayService select(JSONObject params){
         return select(params.getObject("channel", String.class));
@@ -37,16 +39,14 @@ public class ChannelSelector implements BeanPostProcessor,ApplicationContextAwar
         return (PayService) applicationContext.getBean(s);
     }
 
-
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         if(bean instanceof AbstractPayService){
             if(((AbstractPayService) bean).register()){
                 channleServices.put(((AbstractPayService) bean).getChannel(),beanName);
             }
-            System.out.println(((AbstractPayService) bean).getChannel());
         }
-        return null;
+        return bean;
     }
 
 
