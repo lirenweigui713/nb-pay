@@ -1,9 +1,17 @@
 package com.chl.common.config;
 
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+//import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
+
+
+/**
+ * TODO：处理视频.（1.将视频提取成帧图片）
+ *
+ * @author ChenP
+ */
+
 
 /**
  * @Description: TODO()
@@ -13,9 +21,10 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class CommonConfig {
 
-    @LoadBalanced
+//    @LoadBalanced
     @Bean
     RestTemplate restTemplate(){
         return new RestTemplate();
     }
+
 }
