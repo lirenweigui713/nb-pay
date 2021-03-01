@@ -2,8 +2,8 @@ package com.chl.pay.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.chl.common.model.Result;
-import com.chl.pay.model.BasePayRequestModel;
 import com.chl.pay.model.Notify;
+import com.chl.pay.payload.RequestPayLoad;
 
 /**
  * @Description: TODO()
@@ -20,8 +20,6 @@ public interface PayService {
      *
      */
     public boolean registerChannelService();
-
-    public void setChannle();
 
     /**
      * 付款码支付
@@ -78,15 +76,9 @@ public interface PayService {
      *
      */
     public Result notification(Notify notify);
-    /**
-     * 签名算法 非空集合按照ASCII码表进行排序，使用键值对格式拼接城字符串：
-     *      参数值为空不参与，从小到大排序，参数命区分大小写，sign参数不参与签名
-     *      最后得到得字符串拼接上&key=key值
-     * @param params
-     * @param payLoad
-     */
 
-    public void verifySign(JSONObject params, BasePayRequestModel payLoad);
+
+
 
 
 }

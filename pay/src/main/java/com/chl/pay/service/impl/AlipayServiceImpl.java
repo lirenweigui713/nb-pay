@@ -1,7 +1,8 @@
-package com.chl.pay.service;
+package com.chl.pay.service.impl;
 
 import com.chl.common.model.Result;
 import com.chl.pay.model.Notify;
+import com.chl.pay.service.AlipayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -12,19 +13,14 @@ import org.springframework.web.client.RestTemplate;
  * @Date: 2020/3/19 15:37
  */
 @Service
-public class AlipayServiceImpl extends AbstractPayService implements AlipayService{
+public class AlipayServiceImpl extends AbstractPayService implements AlipayService {
 
-    @Autowired
-    RestTemplate restTemplate;
+//    @Autowired
+//    RestTemplate restTemplate;
 
     @Override
     public boolean registerChannelService() {
-        return false;
-    }
-
-    @Override
-    public void setChannle() {
-        this.channel = "Alipay";
+        return true;
     }
 
     @Override
@@ -60,5 +56,10 @@ public class AlipayServiceImpl extends AbstractPayService implements AlipayServi
     @Override
     public Result notification(Notify notify) {
         return null;
+    }
+
+    @Override
+    public String getChannel() {
+        return AbstractPayService.PAY_CHANNEL_ALIPAY;
     }
 }

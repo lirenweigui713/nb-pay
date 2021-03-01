@@ -1,28 +1,19 @@
-package com.chl.pay.model;
-
-
-import com.chl.common.model.Result;
-
-import java.math.BigDecimal;
+package com.chl.pay.payload;
 
 /**
- * @Description: TODO()
- * @Author: Xiao V
- * @Date: 2020/3/12 14:12
+ * 商户线上 / 商户线下 / 商户Barcode 向系统发起支付请求的Model
  */
-public abstract class BasePayRequestModel {
+public class RequestPayLoad {
 
     protected String merchant_id; // 系统内部商户ID
+    protected String store_id; // 系统内部店铺ID
     protected String time_stamp; // 订单创建时间戳
     protected String order_amount; // 订单原始金额
     protected String sign; // 签名
     protected String sign_type; // 签名类型
-    protected String nonce_str; //随机字符串
-    protected boolean pass_verify_sign;
+    protected String nonce_str; // 随机字符串
+    protected String comment; // 备注
 
-    public abstract Result verifySign();
-
-    public abstract Result validParams();
 
     public String getMerchant_id() {
         return merchant_id;
@@ -30,6 +21,14 @@ public abstract class BasePayRequestModel {
 
     public void setMerchant_id(String merchant_id) {
         this.merchant_id = merchant_id;
+    }
+
+    public String getStore_id() {
+        return store_id;
+    }
+
+    public void setStore_id(String store_id) {
+        this.store_id = store_id;
     }
 
     public String getTime_stamp() {
@@ -72,11 +71,11 @@ public abstract class BasePayRequestModel {
         this.nonce_str = nonce_str;
     }
 
-    public boolean isPass_verify_sign() {
-        return pass_verify_sign;
+    public String getComment() {
+        return comment;
     }
 
-    public void setPass_verify_sign(boolean pass_verify_sign) {
-        this.pass_verify_sign = pass_verify_sign;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

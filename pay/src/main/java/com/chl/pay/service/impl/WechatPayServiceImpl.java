@@ -1,7 +1,8 @@
-package com.chl.pay.service;
+package com.chl.pay.service.impl;
 
 import com.chl.common.model.Result;
 import com.chl.pay.model.Notify;
+import com.chl.pay.service.WechatPayService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,12 +18,6 @@ public class WechatPayServiceImpl extends AbstractPayService implements WechatPa
     public boolean registerChannelService() {
         return true;
     }
-
-    @Override
-    public void setChannle() {
-        this.channel = "WechatPay";
-    }
-
 
     @Override
     public Result sacnBarcodePay() {
@@ -60,4 +55,8 @@ public class WechatPayServiceImpl extends AbstractPayService implements WechatPa
     }
 
 
+    @Override
+    public String getChannel() {
+        return AbstractPayService.PAY_CHANNEL_WECHAT;
+    }
 }

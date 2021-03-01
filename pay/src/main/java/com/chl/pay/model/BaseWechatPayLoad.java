@@ -1,4 +1,4 @@
-package com.chl.pay.barcode.model;
+package com.chl.pay.model;
 
 /**
  * @Description: TODO()

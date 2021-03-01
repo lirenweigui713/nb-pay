@@ -6,4 +6,5 @@ package com.chl.pay.model;
  * @Date: 2020/3/16 12:03
  */
 public class Notify {
+
 }

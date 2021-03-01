@@ -1,6 +1,7 @@
-package com.chl.pay.service;
+package com.chl.pay.service.impl;
 
 import com.chl.common.model.Result;
+import com.chl.pay.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,7 +22,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Result loginState() {
 
-        return new Result(Result.USER_LOGIN_STATE_KEEPING,"user keeping login");
+        return new Result(Result.USER_LOGIN_STATE_KEEPING,"user keeping login",true);
     }
 
     @Override
